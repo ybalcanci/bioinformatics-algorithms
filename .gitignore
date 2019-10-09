@@ -2,7 +2,7 @@
 logs
 *.log
 
-hw1\Dockerfile
+hw1/Dockerfile
 
 # Example Data
-hw1\.fa
+hw1/*.fa
