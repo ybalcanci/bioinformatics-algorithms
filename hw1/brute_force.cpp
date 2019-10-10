@@ -38,8 +38,3 @@ int brute_force(string textFileName, string patternFileName){
 	
 	return -1;
 }
-
-int main() {
-	int res = brute_force("text.fa", "pattern.fa");
-	cout << "Res: " << res << endl;
-}
