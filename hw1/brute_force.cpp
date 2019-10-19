@@ -1,28 +1,8 @@
-#include <iostream>
-#include <fstream>
 #include <string>
-#include <sstream>
 
-using namespace std;
-
-string readFile(std::ifstream& in);
-
-int brute_force(string textFileName, string patternFileName){
-	ifstream myTextFile(textFileName);
-	string text = readFile(myTextFile);
-	
-	ifstream myPatternFile(patternFileName);
-	string pattern = readFile(myPatternFile);
-	
-	cout << "text: " << text << endl;
-	cout << "pattern: " <<  pattern << endl;
-	
-	cout << "text.size(): " << text.size() << endl;
-	cout << "pattern.size(): " <<  pattern.size() << endl;
-	
+int brute_force(std::string text, std::string pattern){
 	int textLength = text.size();
 	int patternLength = pattern.size();
-	
 	for(int i = 0; i < textLength - patternLength; i++){
 		/*
 		 text: compared string.

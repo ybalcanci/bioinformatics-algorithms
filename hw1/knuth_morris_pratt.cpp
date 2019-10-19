@@ -1,13 +1,6 @@
-#include <iostream>
-#include <fstream>
 #include <string>
-#include <sstream>
 
-using namespace std;
-
-string readFile(ifstream& in);
-
-int* failureFunction(string pattern){
+int* failureFunction(std::string pattern){
 	int m = pattern.size();
 	int* F = new int[m];
 	int i = 1, j = 0;
@@ -28,13 +21,7 @@ int* failureFunction(string pattern){
 	return F;
 }
 
-int knuth_morris_pratt(string textFileName, string patternFileName){
-	ifstream myTextFile(textFileName);
-	string text = readFile(myTextFile);
-	
-	ifstream myPatternFile(patternFileName);
-	string pattern = readFile(myPatternFile);
-		
+int knuth_morris_pratt(std::string text, std::string pattern){
 	int textLength = text.size();
 	int patternLength = pattern.size();
 	
