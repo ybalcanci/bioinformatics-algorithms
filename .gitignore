@@ -5,4 +5,4 @@ logs
 **/Dockerfile
 
 # Example Data
-hw1/*.fa
+#hw1/*.fa
