@@ -1,8 +1,10 @@
 #include <string>
+#include <iostream>
 
 int brute_force(std::string text, std::string pattern){
 	int textLength = text.size();
 	int patternLength = pattern.size();
+	int numOfCharComparisons = 0;
 	for(int i = 0; i < textLength - patternLength; i++){
 		/*
 		 text: compared string.
@@ -11,10 +13,16 @@ int brute_force(std::string text, std::string pattern){
 			patternLength: Length of compared string.
 			pattern: comparing string.
 		*/
-		if(text.compare(i, patternLength, pattern) == 0){ 
-			return i;
+		for(int j = 0; j < patternLength; j++){
+			numOfCharComparisons++;
+			if(text.at(i + j) != pattern.at(j))
+				break;
+			if(j == patternLength - 1){
+				std::cout << "brute_force numOfCharComparisons: " << numOfCharComparisons << std::endl;
+				return i;
+			}
 		}
 	}
-	
+	std::cout << "brute_force numOfCharComparisons: " << numOfCharComparisons << std::endl;
 	return -1;
 }

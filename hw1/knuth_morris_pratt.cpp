@@ -1,6 +1,7 @@
 #include <string>
+#include <iostream>
 
-int* failureFunction(std::string pattern){
+int* failureFunctionKMP(std::string pattern){
 	int m = pattern.size();
 	int* F = new int[m];
 	int i = 1, j = 0;
@@ -24,12 +25,14 @@ int* failureFunction(std::string pattern){
 int knuth_morris_pratt(std::string text, std::string pattern){
 	int textLength = text.size();
 	int patternLength = pattern.size();
-	
-	int* F = failureFunction(pattern);
+	int numOfCharComparisons = 0;
+	int* F = failureFunctionKMP(pattern);
 	int i = 0, j = 0;
 	while(i < textLength){
+		numOfCharComparisons++;
 		if(text.at(i) == pattern.at(j)){
 			if(j == patternLength - 1){
+				std::cout << "knuth_morris_pratt numOfCharComparisons: " << numOfCharComparisons << std::endl;
 				return i - j;
 			}
 			else{
@@ -47,6 +50,6 @@ int knuth_morris_pratt(std::string text, std::string pattern){
 			}
 		}
 	}
-	
+	std::cout << "knuth_morris_pratt numOfCharComparisons: " << numOfCharComparisons << std::endl;
 	return -1;
 }
