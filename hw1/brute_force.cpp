@@ -5,7 +5,7 @@ int brute_force(std::string text, std::string pattern){
 	int textLength = text.size();
 	int patternLength = pattern.size();
 	int numOfCharComparisons = 0;
-	for(int i = 0; i < textLength - patternLength; i++){
+	for(int i = 0; i < textLength - patternLength + 1; i++){
 		/*
 		 text: compared string.
 		 parameters of compare:
