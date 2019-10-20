@@ -34,6 +34,7 @@ int main(int argc, char *argv[]) {
 	
 	cout << "textLength: " << textLength << endl;
 	cout << "patternLength: " <<  patternLength << endl;
+	cout << endl;
 	
 	auto start = high_resolution_clock::now();
 	int bruteForceRes = brute_force(text, pattern);
@@ -41,6 +42,7 @@ int main(int argc, char *argv[]) {
 	auto duration = duration_cast<microseconds>(stop - start);
 	cout << "Brute force execution time: " << duration.count() << endl;
 	cout << "bruteForceRes: " << bruteForceRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int KMPRes = knuth_morris_pratt(text, pattern);
@@ -48,6 +50,7 @@ int main(int argc, char *argv[]) {
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Knuth-Morris-Pratt execution time: " << duration.count() << endl;
 	cout << "KMPRes: " << KMPRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int BoyerMooreRes = boyer_moore(text, pattern);
@@ -55,6 +58,7 @@ int main(int argc, char *argv[]) {
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Boyer-Moore execution time: " << duration.count() << endl;
 	cout << "BoyerMooreRes: " << BoyerMooreRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int rabinKarpRes = rabin_karp(text, pattern);
@@ -62,5 +66,5 @@ int main(int argc, char *argv[]) {
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Rabin-Karp execution time: " << duration.count() << endl;
 	cout << "rabinKarpRes: " << rabinKarpRes << endl;
-
+	cout << endl;
 }

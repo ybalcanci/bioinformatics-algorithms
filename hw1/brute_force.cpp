@@ -18,11 +18,11 @@ int brute_force(std::string text, std::string pattern){
 			if(text.at(i + j) != pattern.at(j))
 				break;
 			if(j == patternLength - 1){
-				std::cout << "brute_force numOfCharComparisons: " << numOfCharComparisons << std::endl;
+				std::cout << "brute_force # of char comparions: " << numOfCharComparisons << std::endl;
 				return i;
 			}
 		}
 	}
-	std::cout << "brute_force numOfCharComparisons: " << numOfCharComparisons << std::endl;
+	std::cout << "brute_force # of char comparions: " << numOfCharComparisons << std::endl;
 	return -1;
 }
