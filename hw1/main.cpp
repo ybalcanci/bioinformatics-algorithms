@@ -28,14 +28,7 @@ int main(int argc, char *argv[]) {
 	
 	int textLength = text.size();
 	int patternLength = pattern.size();
-	
-	cout << "text: " << text << endl;
-	cout << "pattern: " <<  pattern << endl;
-	
-	cout << "textLength: " << textLength << endl;
-	cout << "patternLength: " <<  patternLength << endl;
-	cout << endl;
-	
+		
 	auto start = high_resolution_clock::now();
 	int bruteForceRes = brute_force(text, pattern);
 	auto stop = high_resolution_clock::now();
@@ -66,5 +59,4 @@ int main(int argc, char *argv[]) {
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Rabin-Karp execution time: " << duration.count() << endl;
 	cout << "rabinKarpRes: " << rabinKarpRes << endl;
-	cout << endl;
 }
