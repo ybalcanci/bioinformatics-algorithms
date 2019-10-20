@@ -28,39 +28,35 @@ int main(int argc, char *argv[]) {
 	
 	int textLength = text.size();
 	int patternLength = pattern.size();
-	
-	cout << "text: " << text << endl;
-	cout << "pattern: " <<  pattern << endl;
-	
-	cout << "textLength: " << textLength << endl;
-	cout << "patternLength: " <<  patternLength << endl;
-	
+		
 	auto start = high_resolution_clock::now();
 	int bruteForceRes = brute_force(text, pattern);
 	auto stop = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop - start);
 	cout << "Brute force execution time: " << duration.count() << endl;
-	cout << "bruteForceRes: " << bruteForceRes << endl;
+	cout << "Brute force found pattern in index: " << bruteForceRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int KMPRes = knuth_morris_pratt(text, pattern);
 	stop = high_resolution_clock::now();
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Knuth-Morris-Pratt execution time: " << duration.count() << endl;
-	cout << "KMPRes: " << KMPRes << endl;
+	cout << "Knuth-Morris-Pratt found pattern in index: " << KMPRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int BoyerMooreRes = boyer_moore(text, pattern);
 	stop = high_resolution_clock::now();
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Boyer-Moore execution time: " << duration.count() << endl;
-	cout << "BoyerMooreRes: " << BoyerMooreRes << endl;
+	cout << "Boyer-Moore found pattern in index " << BoyerMooreRes << endl;
+	cout << endl;
 	
 	start = high_resolution_clock::now();
 	int rabinKarpRes = rabin_karp(text, pattern);
 	stop = high_resolution_clock::now();
 	duration = duration_cast<microseconds>(stop - start);
 	cout << "Rabin-Karp execution time: " << duration.count() << endl;
-	cout << "rabinKarpRes: " << rabinKarpRes << endl;
-
+	cout << "Rabin-Karp found pattern in index: " << rabinKarpRes << endl;
 }

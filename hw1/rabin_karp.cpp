@@ -29,13 +29,24 @@ int rabin_karp(std::string text, std::string pattern){
 				if(text.at(i + j) != pattern.at(j))
 					break;
 				if(j == patternLength - 1){
-					std::cout << "rabin_karp numOfCharComparisons: " << numOfCharComparisons << std::endl;
+					std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
 					return i;
 				}
 			}
 		}
 		ft = ((ft - hash[text.at(i)] * c) * base + hash[text.at(i + patternLength)]) % q;
 	}
-	std::cout << "rabin_karp numOfCharComparisons: " << numOfCharComparisons << std::endl;
+	if(fp == ft){
+		for(int j = 0; j < patternLength; j++){
+			numOfCharComparisons++;
+			if(text.at(textLength - patternLength + j) != pattern.at(j))
+				break;
+			if(j == patternLength - 1){
+				std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
+				return textLength - patternLength;
+			}
+		}
+	}
+	std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
 	return -1;
 }
