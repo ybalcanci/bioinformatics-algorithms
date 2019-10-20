@@ -25,12 +25,12 @@ int boyer_moore(std::string text, std::string pattern){
 				break;
 			}
 			if(k == 0){
-				std::cout << "boyer_moore # of char comparions: " << numOfCharComparisons << std::endl;
+				std::cout << "Boyer-Moore # of char comparions: " << numOfCharComparisons << std::endl;
 				return i;
 			}
 				
 		}
 	}	
-	std::cout << "boyer_moore # of char comparions: " << numOfCharComparisons << std::endl;
+	std::cout << "Boyer-Moore # of char comparions: " << numOfCharComparisons << std::endl;
 	return -1;
 }

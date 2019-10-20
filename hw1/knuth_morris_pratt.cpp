@@ -32,7 +32,7 @@ int knuth_morris_pratt(std::string text, std::string pattern){
 		numOfCharComparisons++;
 		if(text.at(i) == pattern.at(j)){
 			if(j == patternLength - 1){
-				std::cout << "knuth_morris_pratt # of char comparions: " << numOfCharComparisons << std::endl;
+				std::cout << "Knuth-Morris-Pratt # of char comparions: " << numOfCharComparisons << std::endl;
 				return i - j;
 			}
 			else{
@@ -50,6 +50,6 @@ int knuth_morris_pratt(std::string text, std::string pattern){
 			}
 		}
 	}
-	std::cout << "knuth_morris_pratt # of char comparions: " << numOfCharComparisons << std::endl;
+	std::cout << "Knuth-Morris-Pratt # of char comparions: " << numOfCharComparisons << std::endl;
 	return -1;
 }

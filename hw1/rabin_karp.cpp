@@ -29,7 +29,7 @@ int rabin_karp(std::string text, std::string pattern){
 				if(text.at(i + j) != pattern.at(j))
 					break;
 				if(j == patternLength - 1){
-					std::cout << "rabin_karp # of char comparions: " << numOfCharComparisons << std::endl;
+					std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
 					return i;
 				}
 			}
@@ -42,11 +42,11 @@ int rabin_karp(std::string text, std::string pattern){
 			if(text.at(textLength - patternLength + j) != pattern.at(j))
 				break;
 			if(j == patternLength - 1){
-				std::cout << "rabin_karp # of char comparions: " << numOfCharComparisons << std::endl;
+				std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
 				return textLength - patternLength;
 			}
 		}
 	}
-	std::cout << "rabin_karp # of char comparions: " << numOfCharComparisons << std::endl;
+	std::cout << "Rabin-Karp # of char comparions: " << numOfCharComparisons << std::endl;
 	return -1;
 }
