@@ -22,7 +22,7 @@ int rabin_karp(std::string text, std::string pattern){
 	}
 	c /= base;
 	c %= q;
-	for(int i = 0; i < textLength - patternLength; i++){
+	for(int i = 0; i < textLength - patternLength + 1; i++){
 		if(fp == ft){
 			for(int j = 0; j < patternLength; j++){
 				numOfCharComparisons++;
