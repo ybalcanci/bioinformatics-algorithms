@@ -3,6 +3,8 @@ logs
 *.log
 
 **/Dockerfile
+**/*.iml
+**/*.idea
 
 # Example Data
 #hw1/*.fa
