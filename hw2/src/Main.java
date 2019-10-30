@@ -162,11 +162,13 @@ public class Main {
 
 		int oneOccuranceIndex = binarySearch(suffixArray, pattern);
 		int i = oneOccuranceIndex - 1;
-		while(i >= 0 && suffixArray[i].startsWith(pattern))
-			listOfMatchingPositions.add(suffixArrayIndexes[i]);
+		while(i >= 0 && suffixArray[i].startsWith(pattern)){
+			listOfMatchingPositions.add(suffixArrayIndexes[i--]);
+		}
+
 		i = oneOccuranceIndex + 1;
-		while(i >= 0 && suffixArray[i].startsWith(pattern))
-			listOfMatchingPositions.add(suffixArrayIndexes[i]);
+		while(i < suffixArray.length && suffixArray[i].startsWith(pattern))
+			listOfMatchingPositions.add(suffixArrayIndexes[i++]);
 		listOfMatchingPositions.add(suffixArrayIndexes[oneOccuranceIndex]);
 
 		Instant stop = Instant.now();
