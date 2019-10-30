@@ -23,34 +23,49 @@ public class Main {
 
 	private static void burrows_wheeler_transform(String text, String textFileName) {
 		int size = text.length();
-		char[][] matrix = new char[size][size];
 
-		// Construct matrix
-		matrix[0] = text.toCharArray();
-		for (int i = 1; i < size; i++) {
-			System.arraycopy(matrix[i - 1], 1, matrix[i], 0, size - 1);
-			matrix[i][size - 1] = matrix[i - 1][0];
-		}
+/*
 
 		// Sort matrix
 		java.util.Arrays.sort(matrix, Comparator.comparing(String::valueOf));
 
-		// Generate BWT string and suffix array
-		String bwtString = "";
-		String suffixArrayIndexes = "";
+
+ */
+		Integer[] suffixArrayIndexes = new Integer[size];
 		String[] suffixArray = new String[size];
-		for (int i = 0; i < matrix.length; i++) {
-			bwtString += matrix[i][size - 1];
-			String line = String.valueOf(matrix[i]);
-			suffixArray[i] = line.substring(0, line.indexOf("$") + 1);
-			suffixArrayIndexes += (size - String.valueOf(matrix[i]).indexOf("$") - 1) + " ";
+		String tempText = text;
+		int i = 0;
+		while(!tempText.equals("")){
+			suffixArray[i] = tempText;
+			suffixArrayIndexes[i] = i++;
+			tempText = tempText.substring(1);
+		}
+		List<Integer> stringListCopy = Arrays.asList(suffixArrayIndexes);
+		ArrayList<Integer> sortedSuffixArrayIndexes = new ArrayList(stringListCopy);
+		sortedSuffixArrayIndexes.sort(Comparator.comparing(s -> suffixArray[stringListCopy.indexOf(s)]));
+		java.util.Arrays.sort(suffixArray);
+
+		int[] suffixArrayIndexesPrimitive = new int[suffixArrayIndexes.length];
+		for(int j = 0; j < suffixArrayIndexes.length; j++) {
+			suffixArrayIndexesPrimitive[j] = sortedSuffixArrayIndexes.get(j);
+		}
+
+		String bwtString = "";
+		for (int j = 0; j < sortedSuffixArrayIndexes.size(); j++) {
+			if(sortedSuffixArrayIndexes.get(j) > 0)
+				bwtString += text.charAt(sortedSuffixArrayIndexes.get(j) - 1);
+			else{
+				bwtString += "$";
+			}
 		}
 
 		// The first line of the ***.fm file is the the suffix array
 		Path FMFile = Paths.get(textFileName + ".fm");
 		try {
-			Files.write(FMFile, Collections.singletonList(suffixArrayIndexes), StandardCharsets.UTF_8);
-		} catch (IOException e) {
+			Files.write(FMFile, Collections.singletonList(Arrays.stream(suffixArrayIndexesPrimitive)
+					.mapToObj(String::valueOf)
+					.collect(Collectors.joining(" "))), StandardCharsets.UTF_8);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
@@ -72,6 +87,8 @@ public class Main {
 		}
 
 		generateFMIndex(bwtString, textFileName);
+
+
 	}
 
 	private static void generateFMIndex(String bwtString, String textFileName) {
