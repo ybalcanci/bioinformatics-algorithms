@@ -20,11 +20,12 @@ int main(int argc, char *argv[]) {
 		return -1; 
 	}
 	
-	ifstream myTextFile(argv[1]);
-	string text = readFile(myTextFile);
+	ifstream file1(argv[1]);	
+	ifstream file2(argv[2]);
 	
-	ifstream myPatternFile(argv[2]);
-	string pattern = readFile(myPatternFile);
+	string text, pattern, text1 = readFile(file1), text2 = readFile(file2);
+	text = text1.at(1) == 't' ? text1.substr(6) : text2.substr(6);
+	pattern = text2.at(1) == 'p' ? text2.substr(9) : text1.substr(9);
 	
 	int textLength = text.size();
 	int patternLength = pattern.size();

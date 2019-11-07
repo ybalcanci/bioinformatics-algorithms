@@ -5,6 +5,7 @@ int* failureFunctionKMP(std::string pattern){
 	int m = pattern.size();
 	int* F = new int[m];
 	int i = 1, j = 0;
+	F[0] = 0;
 	while(i < m){
 		if(pattern.at(i) == pattern.at(j)){
 			F[i] = j + 1;
