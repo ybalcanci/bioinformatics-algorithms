@@ -7,4 +7,6 @@ logs
 **/*.idea
 
 # Example Data
-#hw1/*.fa
+**/*.fa
+**/*.fm
+**/*.bwt

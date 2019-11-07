@@ -35,6 +35,7 @@ int rabin_karp(std::string text, std::string pattern){
 			}
 		}
 		ft = ((ft - hash[text.at(i)] * c) * base + hash[text.at(i + patternLength)]) % q;
+		if(ft < 0) ft += q;
 	}
 	if(fp == ft){
 		for(int j = 0; j < patternLength; j++){
