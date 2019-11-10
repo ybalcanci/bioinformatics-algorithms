@@ -4,7 +4,6 @@
 #include <math.h>
 using namespace std;
 
-//https://stackoverflow.com/questions/35251635/fasta-reader-written-in-c
 int writeToFile(string sequence1Name, string sequence1, string sequence2Name, string sequence2, int score, string fileName) {
 	int sequence1Length = sequence1.size();
 	int sequence2Length = sequence2.size();

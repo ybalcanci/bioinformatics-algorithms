@@ -1,5 +1,5 @@
 # bioinformatics-algorithms
-CS 481 Bioinformatics Algorithms assignments
+Bilkent University CS 481 Bioinformatics Algorithms assignments
 
 ### HW1: Exact String Matching
 * Brute Force
