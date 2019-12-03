@@ -14,3 +14,6 @@ Bilkent University CS 481 Bioinformatics Algorithms assignments
 ### HW3: Global and Local Alignments of Sequences
 * Needleman-Wunsch
 * Smith-Waterman
+
+### HW3: Multiple Sequence Alignment
+* Sequence to Profile Alignment
