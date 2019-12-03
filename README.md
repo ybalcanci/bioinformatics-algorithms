@@ -15,5 +15,5 @@ Bilkent University CS 481 Bioinformatics Algorithms assignments
 * Needleman-Wunsch
 * Smith-Waterman
 
-### HW3: Multiple Sequence Alignment
+### HW4: Multiple Sequence Alignment
 * Sequence to Profile Alignment
